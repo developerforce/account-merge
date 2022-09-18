@@ -1,0 +1,6 @@
+<aura:component
+  implements="lightning:actionOverride,flexipage:availableForRecordHome,force:hasRecordId"
+  access="global"
+>
+  <c:recordSyncRun></c:recordSyncRun>
+</aura:component>

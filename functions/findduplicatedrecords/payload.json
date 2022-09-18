@@ -1,0 +1,7 @@
+{
+  "fields": "Name",
+  "minimumScore": "0.6",
+  "record": {
+    "Name": "Sample Accounts"
+  }
+}

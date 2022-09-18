@@ -1,0 +1,67 @@
+<template>
+  <lightning-card title="Account Sync Run">
+    <div class="slds-grid slds-gutters slds-var-m-around_x-large">
+      <template if:true={isLoading}>
+        <lightning-spinner alternative-text="Loading"></lightning-spinner>
+      </template>
+      <div class="slds-col">
+        <lightning-dual-listbox
+          if:true={searchFields}
+          name="searchFields"
+          label="Select Search Fields"
+          field-level-help="Select the fields that are going to be used to find duplicates"
+          options={searchFields}
+          min="1"
+          onchange={handleSearchFieldsChange}
+          required
+        ></lightning-dual-listbox>
+      </div>
+      <div class="slds-col">
+        <lightning-dual-listbox
+          if:true={updateFields}
+          name="updateFields"
+          label="Select Update Fields"
+          field-level-help="Select the fields that are going be updating"
+          options={updateFields}
+          min="1"
+          onchange={handleUpdateFieldsChange}
+          required
+        ></lightning-dual-listbox>
+      </div>
+      <div class="slds-col">
+        <div>
+          <lightning-input
+            type="date"
+            name="date-input"
+            label="From"
+            value={selectedDate}
+            onchange={handleSelectedDate}
+            required
+          ></lightning-input>
+        </div>
+        <div class="slds-var-m-top_large">
+          <lightning-input
+            type="number"
+            name="score-input"
+            label="Minimum Score"
+            value={selectedScore}
+            onchange={handleSelectedScore}
+            min="1"
+            max="100"
+            required
+          ></lightning-input>
+        </div>
+        <div class="slds-var-m-top_large slds-float_right">
+          <lightning-button
+            label="New"
+            title="New"
+            onclick={createSyncRunRecord}
+            disabled={disableFind}
+          >
+          </lightning-button>
+        </div>
+      </div>
+      <div class="slds-col"></div>
+    </div>
+  </lightning-card>
+</template>
